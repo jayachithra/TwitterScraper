@@ -36,7 +36,7 @@ with open('brand24.csv','a') as f:
  csvWriter.writerow(['Account name', 'Date Tweeted', 'Tweet','Media url'])
  while True: 
      account = input('Enter the account name that you want to stream (without \'@\'). Enter \'exit\' to stop: ' )
-     #account_list = ['brand24']
+     
      if account != 'exit':
         #for target in account_list:
         print("Getting data for " + account)
@@ -48,13 +48,13 @@ with open('brand24.csv','a') as f:
         print("friends_count: " + str(item.friends_count))
         print("followers_count: " + str(item.followers_count))
         
-        tweet_count = 0
+        #tweet_count = 0
         #end_date = datetime.utcnow() - timedelta(days=186)
         
         end_date = datetime.strptime('Apr 1 2018  1:00AM', '%b %d %Y %I:%M%p')
         print(end_date)
         for status in Cursor(auth_api.user_timeline, id=account).items():
-         tweet_count += 1
+         #tweet_count += 1
          media_url = ''
          media = status.entities.get('media', [])
          if(len(media) > 0):
